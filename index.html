@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 
+<!--
+    José María Samos Diago
+    Llenguatge de Marques
+    Tasca 10.1
+-->
+
 <head>
+    <!-- Aquí están enlazados todos los links de bootstrap, jquery y propios del proyecto-->
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
@@ -13,20 +20,24 @@
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+    <!-- Dependencias propias del proyecto -->
     <link rel="stylesheet" href="styles/estil.css">
     <script src="scripts/index.js"></script>
     <title>Notícies</title>
 </head>
 
 <body>
+    <!-- Container con el título y la descripción de la página -->
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-auto">
+                <!-- Titulo de la página -->
                 <h1 class="titulo">Notícies del diari El País</h1>
             </div>
         </div>
 
-        <br />
+        <br /> <!-- Añadir un espacio entre filas sin tener que añadir una -->
 
         <div class="row justify-content-md-center">
             <div class="col-auto">
@@ -37,6 +48,7 @@
 
         <div class="row justify-content-md-center">
             <div class="col-auto">
+                <!-- Descripción corta de la página y su utilidad -->
                 <p>
                     Aquest es un diari que conecta amb el canal RSS del diari de El País y mostra les notícies en una
                     taula amb el nom del canal, enllaç a l'adreça on es el contingut HTML del canal y una descipció
@@ -47,14 +59,17 @@
         </div>
     </div>
 
+    <!-- Este segundo container contiene las dos tablas y sus titulos -->
     <div class="container">
         <div class="row">
             <div class="col-4">
+                <!-- Título de la primera tabla -->
                 <h3 class="titulo">Informació canal</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-4">
+                <!-- Tabla con la información del canal -->
                 <table class="table table-borderless table-sm table-dark">
                     <thead>
                         <tr>
@@ -65,6 +80,11 @@
                     </thead>
                     <tbody>
                         <tr id="taula-canal">
+                            <!--
+                                El id esta en el tr y no en el tbody
+                                porqué solo hay una fila en esta tabla.
+                                Aquí va el contenido de la tabla, se rellena con javascript
+                            -->
                         </tr>
                     </tbody>
                 </table>
@@ -72,11 +92,13 @@
         </div>
         <div class="row">
             <div class="col-4">
+                <!-- Título de la tabla de noticias -->
                 <h3 class="titulo">Notícies</h3>
             </div>
         </div>
         <div class="row">
             <div class="col">
+                <!-- Segunda tabla que contiene las noticias -->
                 <table class="table table-borderless table-sm table-dark">
                     <thead>
                         <tr>
@@ -87,7 +109,9 @@
                             <th scope="col">Enllaç</th>
                         </tr>
                     </thead>
-                    <tbody id="taula-noticia"></tbody>
+                    <tbody id="taula-noticia">
+                        <!-- Dentro de este cuerpo de tabla se dibuja todo el contenido de las noticias -->
+                    </tbody>
                 </table>
             </div>
         </div>
