@@ -1,3 +1,6 @@
+/*
+Esta función añade las columnas a la tabla que contiene información sobre el canal RSS
+*/
 function pintarTablaCanal(feed) {
     var taulaCanal = $("#taula-canal");
     taulaCanal.append(
@@ -7,8 +10,18 @@ function pintarTablaCanal(feed) {
     );
 }
 
+/*
+Esta función comprueba si el contenido multimedia es
+un video o una imagen si le aplica la etiqueta que
+corresponda
+*/
 function anadirMultimedia(contenido, tipo) {
     var resultado = "<td>";
+
+    /*
+    Tipo contiene este tipo de valores video/mp4 o image/jpg
+    de manera que las primeras 5 letras indican el tipo
+    */
     if (tipo.substr(0, 5) === "video") {
         resultado += "<video width='320' height='240' controls>" +
             "<source src='" + contenido + "' type='" + tipo + "'>El teu navegador no soporta video</video>"
@@ -19,6 +32,10 @@ function anadirMultimedia(contenido, tipo) {
     return resultado;
 }
 
+/*
+Esta función añade las noticias a la tabla de noticias
+parseando el json con el contenido
+*/
 function pintarTablaItems(items) {
     var contenido = "";
     $.each(items, function (index, item) {
@@ -32,16 +49,28 @@ function pintarTablaItems(items) {
     $("#taula-noticia").append(contenido);
 }
 
+/*
+Esta función llama a las funciones que dibujan las tablas
+para poder separar las responsabilidades
+*/
 function pintarTablas(data) {
     pintarTablaCanal(data.feed);
     pintarTablaItems(data.items);
 }
 
+/*
+Esta función hace la petición ajax a una api que convierte los xml
+de los canales RSS en json para que asi sea más fácil de trabajar con el,
+aunque solo permite hasta 10 items del canal RSS, por eso solo se muestran
+10 noticias máximo
+
+Este es el canal RSS original: https://feeds.elpais.com/mrss-s/pages/ep/site/elpais.com/portada
+*/
 function hacerPeticionRSS() {
     $.ajax({
         url: "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ffeeds.elpais.com%2Fmrss-s%2Fpages%2Fep%2Fsite%2Felpais.com%2Fportada", success: pintarTablas
     });
 }
 
-
+//Esta linia llama a la función cuando la página ha cargado completamente
 $(document).ready(hacerPeticionRSS);
