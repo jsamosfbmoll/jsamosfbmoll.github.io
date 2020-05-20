@@ -26,7 +26,7 @@ function pintarTablaItems(items) {
                      "<td>" + item.content + "</td>" +
                      anadirMultimedia(item.enclosure.link, item.enclosure.type) +
                      "<td>" + item.pubDate + "</td>" +
-                     "<td><a href='" + item.link + "' class='badge badge-info'>Aqui</a></td></tr>";
+                     "<td><a href='" + item.link + "' class='badge badge-info'>Notícia</a></td></tr>";
     });
 
     $("#taula-noticia").append(contenido);
