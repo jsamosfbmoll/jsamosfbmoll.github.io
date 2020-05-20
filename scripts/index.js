@@ -3,7 +3,7 @@ function pintarTablaCanal(feed) {
     taulaCanal.append(
         "<td>" + feed.title + "</td>" +
         "<td>" + feed.description + "</td>" +
-        "<td>" + feed.link + "</td>"
+        "<td><a href='" + feed.link + "' class='badge badge-success' target='_blank'>El País</a></td>"
     );
 }
 
