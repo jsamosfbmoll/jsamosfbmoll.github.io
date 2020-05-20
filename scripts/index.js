@@ -11,7 +11,7 @@ function anadirMultimedia(contenido, tipo) {
     var resultado = "<td>";
     if (tipo.substr(0, 5) === "video") {
         resultado += "<video width='320' height='240' controls>" +
-        "<source src='" + contenido + "' type='" + tipo + "'>El teu navegador no soporta video</video>"
+            "<source src='" + contenido + "' type='" + tipo + "'>El teu navegador no soporta video</video>"
     } else if (tipo.substr(0, 5) === "image") {
         resultado += "<img src='" + contenido + "' width='100%' heigth='100%' alt='Imatge no disponible'/>"
     }
@@ -21,12 +21,12 @@ function anadirMultimedia(contenido, tipo) {
 
 function pintarTablaItems(items) {
     var contenido = "";
-    $.each(items, function(index, item) {
+    $.each(items, function (index, item) {
         contenido += "<tr><td>" + item.title + "</td>" +
-                     "<td>" + item.content + "</td>" +
-                     anadirMultimedia(item.enclosure.link, item.enclosure.type) +
-                     "<td>" + item.pubDate + "</td>" +
-                     "<td><a href='" + item.link + "' class='badge badge-info'>Notícia</a></td></tr>";
+            "<td>" + item.content + "</td>" +
+            anadirMultimedia(item.enclosure.link, item.enclosure.type) +
+            "<td>" + item.pubDate + "</td>" +
+            "<td><a href='" + item.link + "' class='badge badge-info'>Notícia</a></td></tr>";
     });
 
     $("#taula-noticia").append(contenido);
