@@ -1,3 +1,7 @@
 .titulo {
     font-family: 'Playfair Display', serif;
 }
+
+body {
+    background-image: url(../img/fondo-papel-viejo.jpg);
+}
