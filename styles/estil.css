@@ -1,7 +1,15 @@
+
+/*
+Estilo para implementar la fuente de google apis
+que se le aplica a los titulos
+*/
 .titulo {
     font-family: 'Playfair Display', serif;
 }
 
+/*
+Imagen de fondo de la página web que esta en img/
+*/
 body {
     background-image: url(../img/fondo-papel-viejo.jpg);
 }
