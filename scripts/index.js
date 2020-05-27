@@ -77,6 +77,7 @@ function crearJsonItems(data) {
     let itemsXML = channel.getElementsByTagName("item");
     $.each(itemsXML, function(index, item) {
         let itemObjeto = {};
+        try {
         itemObjeto.title = item.getElementsByTagName("title")[0].childNodes[0].nodeValue;
         itemObjeto.link = item.getElementsByTagName("link")[0].childNodes[0].nodeValue;
         itemObjeto.content = item.getElementsByTagName("content:encoded")[0].childNodes[0].nodeValue;
@@ -86,6 +87,10 @@ function crearJsonItems(data) {
                 "link": item.getElementsByTagName("media:content")[0].getAttribute("url"),
                 "type": item.getElementsByTagName("media:content")[0].getAttribute("type")
             };
+        }
+        } catch(err) {
+            //Si surt aquest error vol dir que un element falta de la noticía
+            console.log("Ha habido un error con una noticía");
         }
 
         items.push(itemObjeto);
