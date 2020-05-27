@@ -58,7 +58,6 @@ Aquesta funció crea un JSON amb els valors amb la informació del canal RSS
 */
 function crearJsonCanal(data) {
     let channel = data.getElementsByTagName("channel")[0];
-    console.log(channel.getElementsByTagName("title")[0].childNodes[0].nodeValue);
     let feed = {
         "title": channel.getElementsByTagName("title")[0].childNodes[0].nodeValue,
         "description": channel.getElementsByTagName("description")[0].childNodes[0].nodeValue,
@@ -95,7 +94,6 @@ function crearJsonItems(data) {
 
         items.push(itemObjeto);
     });
-    console.log(items[1]);
     return items;
 }
 
